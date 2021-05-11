@@ -1,0 +1,88 @@
+<%- include('partials/head') %> <%- include('partials/header') %>
+<div id="result" class="page">
+  <br>
+  <h2>Resultados</h2>
+  <p><%= numberOfWords %> Palabras</p>
+  <br>
+
+  <!-- reprtitions pannel -->
+  <% if(repetitions.length > 0) {%>   <!-- conditioanl rendering-->
+  <h4 class="resultHeader">Repeticiones</h4>
+  <div id="repetitionsPanel">
+   
+    <table>
+      <tr>
+        <th>Palabra</th>
+        <th>veces</th>
+      </tr>
+        <% repetitions.sort(function (a, b) {
+          return b.times - a.times;
+        }).forEach(function(repitedWord){ %>
+          <tr>
+            <td class="word"><%= repitedWord.word %></td> 
+            <td><%= repitedWord.times %></td> 
+          </tr>
+        <% }); %>
+      </tr>
+    </table>
+  </div>
+  <%}%>
+
+<br>
+
+
+  <!-- Long sentences pannel -->
+  <% if(longsentences.length > 0) {%>   <!-- conditioanl rendering-->
+  <h4 class="resultHeader">Oraciones muy largas</h4>
+  <div id="longSentencesPannel">
+  <table>
+    <tr>
+      <th>Párrafo</th>
+      <th>Oración</th>
+    </tr>
+      <% longsentences.forEach(function({ paragNumber, longSentences }){ %>
+        <tr>
+          <td><%= paragNumber%></td> 
+          <td>
+
+            <% longSentences.forEach(function(sentence){ %>
+              <p> <strong>Oración:</strong> <%= sentence %></p>
+              <br>
+            <% }); %>
+          
+          </td> 
+        </tr>
+      <% }); %>
+    </tr>
+  </table>
+</div>
+<%}%>
+
+ <br>
+
+
+  <!-- Low variation paragraphs-->
+
+ <% if(paragraphsWithLowVariation.length > 0) {%>   <!-- conditioanl rendering-->
+ <h4 class="resultHeader">Párrafos con poca variación</h4>
+ <div id="lowVariationPanel">
+   <table>
+     
+     <tr>
+       <th>Número</th>
+       <th>Párrafo</th>
+     </tr>
+       <% paragraphsWithLowVariation.forEach(function({paragraphIndex, sentences}){ %>
+         <tr>
+           <td><%= paragraphIndex + 1 %></td> 
+           <td> <p><%= sentences.join(". ") %></p></td> 
+         </tr>
+       <% }); %>
+     </tr>
+   </table>
+ </div>
+ <%}%>
+</div>
+<br>
+
+<%- include('partials/footer') %>

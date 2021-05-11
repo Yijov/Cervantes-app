@@ -1,0 +1,16 @@
+#notFound {
+  color: $secundaryColor;
+  a {
+    text-decoration: none;
+    padding: 0.8rem;
+    background-color: $secundaryColor;
+    color: $whiteText;
+    width: 100%;
+    max-width: 150px;
+    border-radius: 5px;
+    font-weight: 600;
+    &:hover {
+      color: $hilightedText;
+    }
+  }
+}

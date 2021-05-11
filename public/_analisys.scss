@@ -1,0 +1,36 @@
+.resultHeader {
+  background-color: $secundaryColor;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  color: $whiteText;
+}
+#repetitionsPanel,
+#longSentencesPannel,
+#lowVariationPanel {
+  max-height: 20rem;
+  width: 90%;
+  overflow: auto;
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 6px;
+    .word {
+      cursor: pointer;
+    }
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 6px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  }
+}
