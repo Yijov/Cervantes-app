@@ -12,7 +12,7 @@ function repitedWordsCounter(splitedOriginalText) {
   let textArr = splitedOriginalText;
   let arr = [...new Set(splitedOriginalText)];
   arr.map((word) => {
-    if (word !== "") {
+    if (word.length) {
       result.push({
         word: word,
         times: textArr.filter((c) => c === word).length,
@@ -55,8 +55,8 @@ function splitToWords(string) {
   //returns an array paragraphs separated by words
   return string
     .toLowerCase()
-    .replace(/[\n]/gi, " ")
-    .replace(/["#$@%(),:.;“”¿?<>¡!]/gi, "")
+    .replace(/[\n\r]/gi, " ") //remove empty lines and rows
+    .replace(/["#$@%(),:.;“”¿?<>¡!]/gi, "") //remove special characters
     .split(" ");
 }
 

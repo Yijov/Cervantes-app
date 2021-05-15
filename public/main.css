@@ -18,6 +18,29 @@ header {
 header #app-name {
   color: #ffffff;
   cursor: pointer;
+  font-size: 0.9rem;
+}
+
+header #app-name h1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+header #app-name h1 a {
+  color: #ffffff;
+}
+
+header #app-name h1 :link {
+  text-decoration: none;
+}
+
+header #app-name h1 .material-icons {
+  font-size: 2.2rem;
 }
 
 header nav {
@@ -66,6 +89,138 @@ header nav ul li :link {
   header {
     font-size: 0.5rem;
   }
+}
+
+#home h4 {
+  color: #009933;
+}
+
+#home #homeMenu {
+  width: 100%;
+  padding: 1rem;
+}
+
+#home #homeMenu .navigationBtn {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 12rem;
+  max-width: 20rem;
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+#home #homeMenu .navigationBtn p {
+  font-size: 1.4rem;
+}
+
+#home #homeMenu .navigationBtn .material-icons {
+  font-size: 3rem;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
 }
 
 #file-form {
@@ -219,98 +374,61 @@ header nav ul li :link {
   }
 }
 
-/* The Modal (background) */
-.modal {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
-  padding-top: 100px;
-  /* Location of the box */
-  left: 0;
-  top: 0;
+#textForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
+}
+
+#textForm #input-area__form {
+  width: 90%;
+  max-width: 40rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 1rem;
+}
+
+#textForm #input-area__form #input-area__text-box {
+  width: 100%;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  font-size: 16px;
+  padding: 0.5rem;
+  max-height: 25rem;
   overflow: auto;
-  /* Enable scroll if needed */
-  background-color: black;
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
 }
 
-/* Modal Content */
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #888;
-  width: 80%;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s;
+#textForm #input-area__form #input-area__text-box::-webkit-scrollbar {
+  width: 5px;
 }
 
-/* Add Animation */
-@-webkit-keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-  to {
-    top: 0;
-    opacity: 1;
-  }
+#textForm #input-area__form #input-area__text-box::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
-@keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-  to {
-    top: 0;
-    opacity: 1;
-  }
+#textForm #input-area__form #input-area__text-box::-webkit-scrollbar-thumb {
+  background: #009933;
 }
 
-/* The Close Button */
-.close {
-  color: white;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+#textForm #input-area__form #input-area__text-box::-webkit-scrollbar-thumb:hover {
+  background: #009933;
 }
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modal-header {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
-}
-
-.modal-body {
-  padding: 2px 16px;
-}
-
-.modal-footer {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
+#textForm #input-area__form #analizar {
+  border: none;
 }
 
 .resultHeader {
@@ -327,7 +445,35 @@ header nav ul li :link {
 #lowVariationPanel {
   max-height: 20rem;
   width: 90%;
+  max-width: 45rem;
   overflow: auto;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+#repetitionsPanel::-webkit-scrollbar,
+#longSentencesPannel::-webkit-scrollbar,
+#lowVariationPanel::-webkit-scrollbar {
+  width: 5px;
+}
+
+#repetitionsPanel::-webkit-scrollbar-track,
+#longSentencesPannel::-webkit-scrollbar-track,
+#lowVariationPanel::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+#repetitionsPanel::-webkit-scrollbar-thumb,
+#longSentencesPannel::-webkit-scrollbar-thumb,
+#lowVariationPanel::-webkit-scrollbar-thumb {
+  background: #009933;
+}
+
+#repetitionsPanel::-webkit-scrollbar-thumb:hover,
+#longSentencesPannel::-webkit-scrollbar-thumb:hover,
+#lowVariationPanel::-webkit-scrollbar-thumb:hover {
+  background: #009933;
 }
 
 #repetitionsPanel table,
@@ -365,21 +511,6 @@ header nav ul li :link {
 
 #notFound {
   color: #00cc44;
-}
-
-#notFound a {
-  text-decoration: none;
-  padding: 0.8rem;
-  background-color: #00cc44;
-  color: #ffffff;
-  width: 100%;
-  max-width: 150px;
-  border-radius: 5px;
-  font-weight: 600;
-}
-
-#notFound a:hover {
-  color: #00ff55;
 }
 
 footer {
@@ -428,6 +559,25 @@ footer {
           align-items: center;
   text-align: center;
   width: 100%;
-  min-height: 93vh;
+  min-height: 85vh;
+}
+
+.navigationBtn {
+  display: block;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  padding: 0.8rem;
+  background-color: #00cc44;
+  color: #ffffff;
+  width: 100%;
+  max-width: 20rem;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.navigationBtn:hover {
+  color: #00ff55;
 }
 /*# sourceMappingURL=main.css.map */

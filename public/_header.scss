@@ -10,6 +10,20 @@ header {
   #app-name {
     color: $whiteText;
     cursor: pointer;
+    font-size: 0.9rem;
+    h1 {
+      display: flex;
+      flex-direction: row;
+      a {
+        color: $whiteText;
+      }
+      :link {
+        text-decoration: none;
+      }
+      .material-icons {
+        font-size: 2.2rem;
+      }
+    }
   }
   nav {
     max-width: 25%;

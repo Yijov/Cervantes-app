@@ -1,0 +1,49 @@
+#textForm {
+  //div containing the form
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  #input-area__form {
+    //the from
+    width: 90%;
+    max-width: 40rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    #input-area__text-box {
+      //THE TEXTAREA IT SELF
+      width: 100%;
+      margin-bottom: 1rem;
+      margin-top: 0.5rem;
+      font-size: 16px;
+      padding: 0.5rem;
+      max-height: 25rem;
+      overflow: auto;
+
+      //style the scroll barr
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: $primaryColor;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: $primaryColor;
+      }
+    }
+
+    //suubmit button
+    #analizar {
+      border: none;
+    }
+  }
+}

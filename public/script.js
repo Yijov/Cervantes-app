@@ -1,5 +1,5 @@
 //Frontend JS
-//dDOM elements
+/*DOM elements*/
 const fileForm = document.getElementById("file-form");
 const fileInput = document.getElementById("file-input");
 const fileInputLabel = document.getElementById("file-input_label");
@@ -14,6 +14,14 @@ const modal = document.getElementById("myModal");
 const modalSpan = document.getElementsByClassName("close")[0]; // Get the <span> element that closes the modal
 const modalBody = document.getElementsByClassName("modal-body")[0];
 const modalFooter = document.getElementsByClassName("modal-footer")[0];
+//text form elements
+const textForm = document.getElementById("input-area__form");
+const Textbox = document.getElementById("input-area__text-box");
+const submitButton = document.getElementById("analizar");
+let noSinonimsMessage =
+  "<h4> No hay sinónimos disponibles para esta palabra </h4>";
+let sinonimsErrorMessage =
+  "<h4> Algo anda mal! por favor refresque en intente de nuevo </h4>";
 
 const urlOptions = {
   //options on the call to get the sinonims
@@ -22,7 +30,7 @@ const urlOptions = {
   mode: "cors",
 };
 
-//event listeners
+/*event listeners*/
 
 fileInput && fileInput.addEventListener("change", handleFileLoad);
 repitedWords &&
@@ -35,14 +43,12 @@ fileForm && fileForm.addEventListener("submit", loading);
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modal) {
-    modal.style.display = "none";
+    closeModal();
   }
 };
 
 // When the user clicks on <span> (x), close the modal
-modalSpan.onclick = function () {
-  modal.style.display = "none";
-};
+modalSpan && modalSpan.addEventListener("click", closeModal);
 
 //Event handelers
 
@@ -57,21 +63,26 @@ function handleFileLoad(e) {
 
 async function displaySinonims(e) {
   repetitionsPanel.style.pointerEvents = "none";
-  let sinonims = await getSinonims(e);
-  modal.style.display = "block";
-  if (sinonims.length > 1) {
-    modalBody.innerHTML = ""; //clean the boody
-    //add the sinonims
-    sinonims.forEach((sinonim) => {
-      modalBody.innerHTML += "<p>" + sinonim.sinonimo.toUpperCase() + "</p>";
-    });
-  } else {
-    modalBody.innerHTML =
-      "<h4> No hay sinónimos disponibles para esta palabra </h4>";
-  }
+  try {
+    let sinonims = await getSinonims(e);
+    modal.style.display = "block";
+    if (sinonims && sinonims.length && sinonims.length > 1) {
+      modalBody.innerHTML = ""; //clean the boody
+      //add the sinonims
+      sinonims.forEach((sinonim) => {
+        modalBody.innerHTML += "<p>" + capitalize(sinonim.sinonimo) + "</p>";
+      });
+    } else {
+      modalBody.innerHTML = noSinonimsMessage;
+    }
 
-  modalFooter.innerHTML = "<h3>" + e.target.innerText.toUpperCase() + "</h3>";
-  repetitionsPanel.style.pointerEvents = "auto";
+    modalFooter.innerHTML = "<h3>" + capitalize(e.target.innerText) + "</h3>";
+    repetitionsPanel.style.pointerEvents = "auto";
+  } catch (error) {
+    modalBody.innerHTML = sinonimsErrorMessage;
+    modalFooter.innerHTML = "<h3>" + capitalize(e.target.innerText) + "</h3>";
+    repetitionsPanel.style.pointerEvents = "auto";
+  }
 }
 //changes the content of the  input to display the  name of the  file loadad and a new icon to signal it. (shooth transition included)
 function displayFileIsLoaded(e) {
@@ -112,4 +123,12 @@ async function getSinonims(e) {
   let response = await fetch(sinonimsURL + word, urlOptions);
   let data = await response.json();
   return data.sinonims;
+}
+
+function closeModal() {
+  modal.style.display = "none";
+}
+
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }

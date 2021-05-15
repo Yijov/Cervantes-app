@@ -2,6 +2,8 @@
 @import "header";
 @import "home";
 @import "modal";
+@import "fileForm";
+@import "textForm";
 @import "analisys";
 @import "notfound";
 @import "footer";
@@ -20,5 +22,23 @@
   align-items: center;
   text-align: center;
   width: 100%;
-  min-height: 93vh;
+  min-height: 85vh;
+}
+
+.navigationBtn {
+  display: block;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  padding: 0.8rem;
+  background-color: $secundaryColor;
+  color: $whiteText;
+  width: 100%;
+  max-width: 20rem;
+  border-radius: 5px;
+  font-weight: 600;
+  &:hover {
+    color: $hilightedText;
+  }
 }

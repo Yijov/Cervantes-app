@@ -1,14 +1,16 @@
 //imports and constants
 const express = require("express");
+require("dotenv").config();
 const app = express();
 const homeRoutes = require("../routes/publicRoutes");
 const analisysRoutes = require("../routes/analisysRoutes");
 const apiRoutes = require("../routes/apiRoutes");
-const port = process.env.PORT || 3000;
+const helmet = require("helmet");
+const port = process.env.PORT;
 
 //set view engine and public files
 app.set("view engine", "ejs");
-//app.use(express.static("public"));
+app.use(helmet());
 
 //routes
 //home and puclic routes

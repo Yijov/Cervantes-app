@@ -1,0 +1,21 @@
+<%- include('partials/head') %> <%- include('partials/header') %>
+
+<div id="textForm" class="page">
+  <form id="input-area__form" method="POST" action="/analisys/text">
+    <label for="input-area__text-box">Inserte su texto en este espacio</label>
+    <hr />
+    <textarea
+      id="input-area__text-box"
+      name="text"
+      maxlength="14000"
+      form_id="input=area__text-box"
+      placeholder="Pegar o escribir"
+      rows="30"
+      cols="20"
+      required
+    ></textarea>
+    <input id="analizar" class="navigationBtn" type="submit" value="Analizar" />
+  </form>
+</div>
+
+<%- include('partials/footer') %>

@@ -15,19 +15,25 @@
   <div id="repetitionsPanel">
    
     <table>
-      <tr>
-        <th>Palabra</th>
-        <th>veces</th>
-      </tr>
-        <% repetitions.sort(function (a, b) {
-          return b.times - a.times;
-        }).forEach(function(repitedWord){ %>
-          <tr>
-            <td class="word"><%= repitedWord.word %></td> 
-            <td><%= repitedWord.times %></td> 
-          </tr>
-        <% }); %>
-      </tr>
+      <tbody>
+        <tr>
+          <th>Palabra</th>
+          <th>veces</th>
+        </tr>
+          <% repetitions.sort(function (a, b) {
+            return b.times - a.times;
+          }).forEach(function(repitedWord){ %>
+            <tr>
+              <td class="word"><%= repitedWord.word %></td> 
+              <td><%= repitedWord.times %></td> 
+            </tr>
+          <% }); %>
+        </tr>
+      </tbody>
+      <tfoot>
+    <h3>Haga click en una parabra para ver sus sininimos</h3>
+      </tfoot>
+     
     </table>
   </div>
   <%}%>
@@ -86,7 +92,28 @@
    </table>
  </div>
  <%}%>
+
+ <% if(repetitions.length === 0 && longsentences.length === 0 && paragraphsWithLowVariation.length === 0) {%>
+
+  <h2>No hay Sugerencias</h2>
+
+  <% } %>
+
 </div>
+
 <br>
+
+<% if(route===1) {%>
+
+  <a  class="navigationBtn" href="/analisys/file">Analizar otro texto</a>
+
+  <% } %>
+
+<% if(route===2) {%>
+
+  <a  class="navigationBtn" href="/analisys/text">Analizar otro texto</a>
+  
+  <% } %>
+
 
 <%- include('partials/footer') %>

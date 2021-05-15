@@ -11,7 +11,27 @@
 #lowVariationPanel {
   max-height: 20rem;
   width: 90%;
+  max-width: 45rem;
   overflow: auto;
+  //style the scroll bars
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $primaryColor;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: $primaryColor;
+  }
 
   table {
     font-family: arial, sans-serif;

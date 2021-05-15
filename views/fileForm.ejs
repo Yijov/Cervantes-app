@@ -1,0 +1,27 @@
+<%- include('partials/head') %> <%- include('partials/header') %>
+
+<div id="fileForm" class="page">
+  <form
+    ref="file-form"
+    id="file-form"
+    action="/analisys/file"
+    method="post"
+    encType="multipart/form-data"
+  >
+    <label for="file-input" id="file-input_label">
+      <span id="input-icon" class="material-icons"> backup </span>
+      <span id="input-message">Seleccione un archivo </span>
+    </label>
+    <br />
+    <input
+      type="file"
+      id="file-input"
+      name="sampleFile"
+      accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+      required
+    />
+    <input id="submit-file" type="submit" value="Analizar" />
+  </form>
+</div>
+
+<%- include('partials/footer') %>
